@@ -1,5 +1,23 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "BC240W1",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "server": "http://BC240W1",
+            "serverInstance": "BC",
+            "authentication": "UserPassword",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "tenant": "default",        
+            "schemaUpdateMode": "ForceSync"
+            }
     ]
 }

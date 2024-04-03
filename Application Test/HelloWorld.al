@@ -4,9 +4,15 @@
 
 pageextension 50000 CustomerListExt extends "Customer List"
 {
+    layout
+    {
+        modify("Allow Multiple Posting Groups")
+        {
+            AboutText = 'False';
+        }
+    }
     trigger OnOpenPage();
     begin
         Message('App published: Hello world');
     end;
 }
-
