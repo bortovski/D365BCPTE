@@ -16,3 +16,35 @@ pageextension 50000 CustomerListExt extends "Customer List"
         Message('App published: Hello world');
     end;
 }
+codeunit 50000 ReportMngt
+{
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, OnAfterSubstituteReport, '', false, false)]
+    local procedure OnAfterSubstituteReport(var NewReportId: Integer; ReportId: Integer)
+    begin
+        if ReportId = Report::"Exch. Rate Adjustment" then
+            NewReportId := Report::"Adjust Exchange Rates";
+    end;
+}
+reportextension 50000 TestReport extends "Exch. Rate Adjustment"
+{
+
+    dataset
+    {
+        // Add changes to dataitems and columns here
+    }
+
+    requestpage
+    {
+        // Add changes to the requestpage here
+    }
+
+    rendering
+    {
+        layout(LayoutName)
+        {
+            Type = RDLC;
+            LayoutFile = 'mylayout.rdl';
+
+        }
+    }
+}
